@@ -4,16 +4,16 @@ import 'actions.dart';
 import 'store.dart';
 
 AppState reducers(AppState prevState, dynamic action) {
-  AppState newState = '' as AppState;
+  AppState newState;
   if (action is UpdateKm) {
     print(Action);
     print(action.payload);
 
     newState =
         AppState.copyWith(prev: prevState, km: action.payload, miles: '');
-        print(newState);
-        print(newState.km);
-  }else if (action is Convert){
+    print(newState);
+    print(newState.km);
+  } else if (action is Convert) {
     print(action);
 
     double kmAsDouble = double.parse(prevState.km);
@@ -21,7 +21,10 @@ AppState reducers(AppState prevState, dynamic action) {
 
     print(milesAsDouble);
 
-    newState = AppState.copyWith(prev: prevState  , miles: milesAsDouble.toString(), km: '');
+    newState = AppState.copyWith(
+        prev: prevState, miles: milesAsDouble.toString(), km: '');
+  } else {
+    throw 'this should never happen';
   }
   return newState;
 }

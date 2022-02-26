@@ -6,12 +6,13 @@ import 'package:km_to_miles_converter_redux/screens/home_screen.dart';
 import 'package:redux/redux.dart';
 
 void main() {
-  Store<AppState> _store = Store<AppState>(reducers, initialState: AppState.initial());
+  Store<AppState> _store =
+      Store<AppState>(reducers, initialState: AppState.initial());
   runApp(MyApp(store: _store));
 }
 
 class MyApp extends StatelessWidget {
-  final Store store;
+  final Store<AppState> store;
   const MyApp({Key? key, required this.store}) : super(key: key);
 
   @override
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: HomeScreen(),
+        home: const HomeScreen(),
       ),
     );
   }

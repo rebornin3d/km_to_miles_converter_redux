@@ -12,16 +12,15 @@ class HomeScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: StoreConnector<AppState, AppState>(
-          converter:(store) => store.state,
-          builder: (context,state) =>
-           Column(
+          converter: (store) => store.state,
+          builder: (context, state) => Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text('Km'),
+              const Text('Km'),
               Padding(
                 padding: const EdgeInsets.all(20),
                 child: TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Km',
                   ),
                   keyboardType: TextInputType.number,
@@ -30,14 +29,15 @@ class HomeScreen extends StatelessWidget {
                   },
                 ),
               ),
-              Text('Miles'),
+              const Text('Miles'),
               Padding(
                 padding: const EdgeInsets.all(20),
                 child: Text(state.miles),
               ),
               ElevatedButton(
-                onPressed: () => StoreProvider.of<AppState>(context).dispatch(Convert()),
-                child: Text('Convert'),
+                onPressed: () =>
+                    StoreProvider.of<AppState>(context).dispatch(Convert()),
+                child: const Text('Convert'),
               ),
             ],
           ),
