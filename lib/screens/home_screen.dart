@@ -16,6 +16,8 @@ class HomeScreen extends StatelessWidget {
           builder: (context, state) => Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+
+              //convert funstionality starts
               const Text('Km'),
               Padding(
                 padding: const EdgeInsets.all(20),
@@ -27,9 +29,11 @@ class HomeScreen extends StatelessWidget {
                   onChanged: (val) {
                     StoreProvider.of<AppState>(context).dispatch(UpdateKm(val));
                   },
+
                 ),
               ),
               const Text('Miles'),
+
               Padding(
                 padding: const EdgeInsets.all(20),
                 child: Text(state.miles),
@@ -38,6 +42,20 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () =>
                     StoreProvider.of<AppState>(context).dispatch(Convert()),
                 child: const Text('Convert'),
+              ),
+//convert functionality ends
+
+
+//counter functionality starts
+              const Text('Counter'),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Text(state.counter_var.toString()),
+              ),
+              ElevatedButton(
+                onPressed: () =>
+                    StoreProvider.of<AppState>(context).dispatch(IncrementCounter()),
+                child: const Text('Increment'),
               ),
             ],
           ),

@@ -9,3 +9,16 @@ class UpdateKm extends Action {
     this.payload,
   );
 }
+
+
+
+class IncrementCounter extends Action{}
+
+class UpdateCounter extends Action{
+  late int payload;
+
+  UpdateCounter(
+      this.payload,
+      );
+
+}

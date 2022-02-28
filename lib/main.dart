@@ -7,7 +7,7 @@ import 'package:redux/redux.dart';
 
 void main() {
   Store<AppState> _store =
-      Store<AppState>(reducers, initialState: AppState.initial());
+      Store<AppState>(reducers, initialState: AppState.initialConverter());
   runApp(MyApp(store: _store));
 }
 
